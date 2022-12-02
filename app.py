@@ -1,9 +1,17 @@
 from flask import Flask, flash, redirect, render_template, request, session
-from helpers import apology
+from helpers import apology, login_required
+from cs50 import SQL
+
 import os
 from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
+
+db = SQL("sqlite:///courses.db")
+
+db.execute("CREATE TABLE IF NOT EXISTS people(user_id int NOT NULL, courses text[])")
+db.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL)")
+
 
 
 # if not os.environ.get("API_KEY"):
@@ -30,15 +38,15 @@ def register():
     if password != confirm_password:
         return apology("password does not match confirmation")
 
-    # if username == db.execute("SELECT username FROM users"):
-    #     return apology("Duplicate username")
+    if username == db.execute("SELECT username FROM users"):
+        return apology("Duplicate username")
 
-    # try:
-    #     id = db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
-    # except ValueError:
-    #     return apology("Error! Username is taken")
+    try:
+        id = db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
+    except ValueError:
+        return apology("Error! Username is taken")
 
-    # rows = db.execute("SELECT * FROM users WHERE username = ?", username)
+    rows = db.execute("SELECT * FROM users WHERE username = ?", username)
 
     session["user_id"] = id
 
@@ -63,14 +71,14 @@ def login():
             return apology("must provide password", 403)
 
         # Query database for username
-        # rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-        #
-        # # Ensure username exists and password is correct
-        # if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-        #     return apology("invalid username and/or password", 403)
-        #
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+
+        # Ensure username exists and password is correct
+        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+            return apology("invalid username and/or password", 403)
+
         # # Remember which user has logged in
-        # session["user_id"] = rows[0]["id"]
+        session["user_id"] = rows[0]["id"]
 
         # Redirect user to home page
         return redirect("/")
@@ -92,7 +100,9 @@ def logout():
 
 
 @app.route("/")
-def main():
+@login_required
+def index():
+
     return render_template("index.html")
 
 
