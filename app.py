@@ -1,18 +1,17 @@
+import os
 from flask import Flask, flash, redirect, render_template, request, session
 from helpers import apology, login_required
 from cs50 import SQL
-
-import os
+#from flask_session import Session
+from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
-
+# Configure session to use filesystem (instead of signed cookies)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+#Session(app)
 db = SQL("sqlite:///courses.db")
-
-db.execute("CREATE TABLE IF NOT EXISTS available_courses(course_name TEXT NOT NULL)")
-db.execute("CREATE TABLE IF NOT EXISTS registered_courses(user_id int NOT NULL, course_name TEXT NOT NULL)")
-db.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL)")
-
 
 
 # if not os.environ.get("API_KEY"):
@@ -90,6 +89,7 @@ def login():
 
 
 @app.route("/logout")
+@login_required
 def logout():
     """Log user out"""
 
@@ -103,29 +103,21 @@ def logout():
 @app.route("/", methods=['POST', 'GET'])
 @login_required
 def dashboard():
-
     if request.method == "POST":
         value = request.form.get("clarinets")
-        print(value)
-
 
     user_id = session["user_id"]
 
-    registered_courses = db.execute(
-        "SELECT course_name FROM courses WHERE user_id = ?",
+    submitted_courses = db.execute("SELECT course_name FROM registered_courses WHERE user_id = ?", user_id)
+
+    courses = db.execute(
+        "SELECT course_name FROM available_courses WHERE course_name NOT IN (SELECT course_name FROM registered_courses WHERE user_id = ?)",
         user_id)
 
-    # available_courses = db.execute(
-    #     "SELECT available_courses FROM courses WHERE user_id = ?",
-    #     user_id)
-
-    # available_courses=available_courses
-
-    return render_template("dashboard.html", registered_courses=registered_courses, )
-
-
+    return render_template("dashboard.html", available_courses=courses, registered_courses=submitted_courses)
 
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
+    app.debug = True
     app.run()
