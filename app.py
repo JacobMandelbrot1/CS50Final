@@ -103,8 +103,12 @@ def logout():
 @app.route("/", methods=['POST', 'GET'])
 @login_required
 def dashboard():
+    user_id = session["user_id"]
+
     if request.method == "POST":
-        value = request.form.get("clarinets")
+        value = request.form['clarinets']
+        print(value)
+        db.execute("INSERT INTO registered_courses(user_id, course_name) VALUES(?, ?)", user_id, value)
 
     user_id = session["user_id"]
 
