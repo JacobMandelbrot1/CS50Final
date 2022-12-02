@@ -9,7 +9,8 @@ app = Flask(__name__)
 
 db = SQL("sqlite:///courses.db")
 
-db.execute("CREATE TABLE IF NOT EXISTS courses(user_id int NOT NULL, course_name TEXT NOT NULL, available_courses TEXT NOT NULL)")
+db.execute("CREATE TABLE IF NOT EXISTS available_courses(course_name TEXT NOT NULL)")
+db.execute("CREATE TABLE IF NOT EXISTS registered_courses(user_id int NOT NULL, course_name TEXT NOT NULL)")
 db.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL)")
 
 
