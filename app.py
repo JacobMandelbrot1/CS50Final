@@ -2,7 +2,7 @@ import os
 from flask import Flask, flash, redirect, render_template, request, session
 from helpers import apology, login_required
 from cs50 import SQL
-#from flask_session import Session
+from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-#Session(app)
+Session(app)
 db = SQL("sqlite:///courses.db")
 
 
@@ -103,15 +103,20 @@ def logout():
 @app.route("/", methods=['POST', 'GET'])
 @login_required
 def dashboard():
+    user_id = session["user_id"]
     if request.method == "POST":
         value = request.form.get("clarinets")
+        unvalue = request.form.get("unregister")
+        if request.form.get("clarinets"):
+            db.execute("INSERT INTO registered_courses (course_name, user_id) VALUES(?, ?)", value, user_id)
+        elif unvalue:
+            db.execute("DELETE FROM registered_courses WHERE course_name= ?", unvalue)
 
-    user_id = session["user_id"]
+
 
     submitted_courses = db.execute("SELECT course_name FROM registered_courses WHERE user_id = ?", user_id)
 
-    courses = db.execute(
-        "SELECT course_name FROM available_courses WHERE course_name NOT IN (SELECT course_name FROM registered_courses WHERE user_id = ?)",
+    courses = db.execute("SELECT course_name FROM available_courses WHERE course_name NOT IN (SELECT course_name FROM registered_courses WHERE user_id = ?)",
         user_id)
 
     return render_template("dashboard.html", available_courses=courses, registered_courses=submitted_courses)

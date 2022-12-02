@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Index
+Index
 {% endblock %}
 
 {% block main %}
@@ -10,41 +10,50 @@
 
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th class="text-start">Course Name</th>
-            </tr>
+        <tr>
+            <th class="text-start">Course Name</th>
+        </tr>
         </thead>
-       <tbody>
-           <form action="/" method="POST">
-                <label for="clarinets">Available Courses:</label>
-                <select name="clarinets" id="clarinets">
+        <tbody>
+        <form action="/" method="POST">
+            <label for="clarinets">Available Courses:</label>
+            <select name="clarinets" id="clarinets">
 
 
-                 {% for course in available_courses %}
-                 <option value="Course">{{course['course_name']}}</option>
-                 {% endfor %}
+                {% for course in available_courses %}
+                <option>{{course['course_name']}}</option>
+                {% endfor %}
 
-                </select>
-                <button type="submit">Register</button>
-              </form>
-
-
-
-            {% for name in registered_courses %}
-            <tr>
-                <td class = "text-start"> {{name}}</td>
+            </select>
+            <button type="submit">Register</button>
+        </form>
 
 
-
-            </tr>
-            {% endfor %}
+        {% for name in registered_courses %}
+        <tr>
+            <td>{{name['course_name']}}</td>
+        </tr>
+        {% endfor %}
 
         </tbody>
 
     </table>
+    <footer>
+        <form action="/" method="POST">
+            <labelable for="unregister">Registered Courses:</labelable>
+            <select name="unregistered" id="unregistered">
 
-        </main>
 
+                {% for course in registered_courses %}
+                <option>{{course['course_name']}}</option>
+                {% endfor %}
+
+            </select>
+            <button type="submit">Unregister</button>
+        </form>
+    </footer>
+
+</main>
 
 
 {% endblock %}
