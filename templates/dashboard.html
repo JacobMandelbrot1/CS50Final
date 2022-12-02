@@ -16,12 +16,13 @@
         </thead>
        <tbody>
            <form action="/" method="POST">
-                <label for="clarinets">Favorite Clarinet:</label>
+                <label for="clarinets">Available Courses:</label>
                 <select name="clarinets" id="clarinets">
 
-<!--                  {% for course in available_courses %}-->
-<!--                  <option value="Course">{{course}}</option>-->
-<!--                  {% endfor %}-->
+
+                 {% for course in available_courses %}
+                 <option value="Course">{{course['course_name']}}</option>
+                 {% endfor %}
 
                 </select>
                 <button type="submit">Register</button>
@@ -33,24 +34,13 @@
             <tr>
                 <td class = "text-start"> {{name}}</td>
 
-<!--                <td class = "text-start"> {{symbol["symbol"]}}</td>-->
-<!--                <td class = "text-start"> {{symbol["name"]}}</td>-->
-<!--                <td class = "text-end"> {{symbol["shares"]}}</td>-->
-<!--                <td class = "text-end"> {{symbol["price"]}}</td>-->
-<!--                <td class = "text-end"> {{symbol["total"]}}</td>-->
+
 
             </tr>
             {% endfor %}
 
         </tbody>
-        <tfoot>
-<!--            <tr>-->
-<!--                <td class="border-0 fw-bold text-end" colspan="4">CASH</td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>-->
-<!--            </tr>-->
-        </tfoot>
+
     </table>
 
         </main>
