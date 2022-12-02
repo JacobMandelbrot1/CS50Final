@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 db = SQL("sqlite:///courses.db")
 
-db.execute("CREATE TABLE IF NOT EXISTS people(user_id int NOT NULL, courses text[])")
+db.execute("CREATE TABLE IF NOT EXISTS courses(user_id int NOT NULL, course_name TEXT NOT NULL, available_courses TEXT NOT NULL)")
 db.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL)")
 
 
@@ -99,11 +99,30 @@ def logout():
     return redirect("/")
 
 
-@app.route("/")
+@app.route("/", methods=['POST', 'GET'])
 @login_required
-def index():
+def dashboard():
 
-    return render_template("index.html")
+    if request.method == "POST":
+        value = request.form.get("clarinets")
+        print(value)
+
+
+    user_id = session["user_id"]
+
+    registered_courses = db.execute(
+        "SELECT course_name FROM courses WHERE user_id = ?",
+        user_id)
+
+    # available_courses = db.execute(
+    #     "SELECT available_courses FROM courses WHERE user_id = ?",
+    #     user_id)
+
+    # available_courses=available_courses
+
+    return render_template("dashboard.html", registered_courses=registered_courses, )
+
+
 
 
 if __name__ == '__main__':
