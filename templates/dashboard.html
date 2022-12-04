@@ -15,24 +15,63 @@ Index
         </tr>
         </thead>
         <tbody>
-        <form action="/" method="POST">
-            <label for="clarinets">Available Courses:</label>
-            <select name="clarinets" id="clarinets">
+        <label>
+            <input autocomplete="off" autofocus placeholder="Query" type="search">
+        </label>
+
+        <ul></ul>
+
+        <script>
+
+            let input = document.querySelector('input');
+            input.addEventListener('input', async function () {
+                let response = await fetch('/search?q=' + input.value);
+                let shows = await response.text();
+                document.querySelector('ul').innerHTML = shows;
+            });
+
+        </script>
+
+                <form action="/" method="POST">
+                    <label for="clarinets">Available Courses:</label>
+                    <select name="clarinets" id="clarinets">
 
 
-                {% for course in available_courses %}
-                <option>{{course['course_name']}}</option>
-                {% endfor %}
+                        {% for course in available_courses %}
+                        <option>{{course['course_name']}}</option>
+                        {% endfor %}
 
-            </select>
-            <button type="submit">Register</button>
-        </form>
+                    </select>
+                    <button type="submit">Register</button>
+                </form>
 
 
         {% for name in registered_courses %}
         <tr>
             <td>{{name['course_name']}}</td>
         </tr>
+        {% endfor %}
+
+        <footer>
+        <form action="/" method="POST">
+            <labelable for="unregister">Registered Courses:</labelable>
+            <select name="unregister" id="unregister">
+
+
+                {% for course in registered_courses %}
+                <option>{{course['course_name']}}</option>
+                {% endfor %}
+
+            </select>
+            <button type="submit">Unregister</button>
+        </form>
+    </footer>
+
+
+        {% for show in searched_courses %}
+
+         <{{ show['course_name']}}
+
         {% endfor %}
 
         </tbody>

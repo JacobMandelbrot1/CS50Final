@@ -99,24 +99,60 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
+# @app.route("/")
+# @login_required
+# def index():
+#     return render_template("index.html")
+
+@app.route("/search")
+@login_required
+def search():
+    q = request.args.get("q")
+    print(q)
+    user_id = session["user_id"]
+
+    if q:
+        searched = db.execute("SELECT course_name FROM available_courses "
+                              "WHERE course_name NOT IN (SELECT course_name FROM registered_courses WHERE user_id = ?) "
+                              "AND course_name LIKE ? LIMIT 50", user_id, "%" + q + "%")
+    else:
+        searched = []
+
+
+    return render_template("search.html", searched_courses=searched)
 
 @app.route("/", methods=['POST', 'GET'])
 @login_required
 def dashboard():
+
     user_id = session["user_id"]
 
     if request.method == "POST":
-        value = request.form['clarinets']
-        print(value)
-        db.execute("INSERT INTO registered_courses(user_id, course_name) VALUES(?, ?)", user_id, value)
-
-    user_id = session["user_id"]
+        value = request.form.get("clarinets")
+        unvalue = request.form.get("unregister")
+        if request.form.get("clarinets"):
+            print("hi")
+            db.execute("INSERT INTO registered_courses (course_name, user_id) VALUES(?, ?)", value, user_id)
+        elif unvalue:
+            print("hi")
+            db.execute("DELETE FROM registered_courses WHERE course_name= ?", unvalue)
 
     submitted_courses = db.execute("SELECT course_name FROM registered_courses WHERE user_id = ?", user_id)
 
     courses = db.execute(
         "SELECT course_name FROM available_courses WHERE course_name NOT IN (SELECT course_name FROM registered_courses WHERE user_id = ?)",
         user_id)
+    # q = request.args.get("q")
+    # print(q)
+    #
+    # if q:
+    #     searched = db.execute("SELECT course_name FROM available_courses "
+    #                           "WHERE course_name NOT IN (SELECT course_name FROM registered_courses WHERE user_id = ?) "
+    #                           "AND course_name LIKE ? LIMIT 50", user_id, "%" + q + "%")
+    # else:
+    #     searched = []
+    #
+    # print(searched)
 
     return render_template("dashboard.html", available_courses=courses, registered_courses=submitted_courses)
 
