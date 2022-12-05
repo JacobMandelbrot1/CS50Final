@@ -15,8 +15,7 @@ db = SQL("sqlite:///courses.db")
 
 
 
-# if not os.environ.get("API_KEY"):
-#     raise RuntimeError("API_KEY not set")
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
@@ -128,7 +127,7 @@ def dashboard():
     flag = db.execute("Select Admin From users Where id = ?", user_id)[0]["Admin"]
 
 
-    submitted_courses = db.execute("SELECT course_name FROM registered_courses WHERE user_id = ?", user_id)
+    submitted_courses = db.execute("SELECT * FROM available_courses WHERE course_name IN (SELECT course_name FROM registered_courses WHERE user_id = ?)", user_id)
 
     courses = db.execute("SELECT course_name FROM available_courses WHERE course_name NOT IN (SELECT course_name FROM registered_courses WHERE user_id = ?)",
         user_id)
@@ -159,7 +158,6 @@ def add():
 def available():
 
     user_id = session["user_id"]
-    print("hi")
     if request.method == "POST":
 
         course = request.form.get("button")
