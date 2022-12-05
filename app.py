@@ -42,11 +42,16 @@ def register():
     if username == db.execute("SELECT username FROM users"):
         return apology("Duplicate username")
 
-
-    try:
-        id = db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
-    except ValueError:
-        return apology("Error! Username is taken")
+    if admin == "admin":
+        try:
+            id = db.execute("INSERT INTO users (username, hash, Admin) VALUES(?, ?, 1)", username, generate_password_hash(password))
+        except ValueError:
+            return apology("Error! Username is taken")
+    else:
+        try:
+            id = db.execute("INSERT INTO users (username, hash, Admin) VALUES(?, ?, 0)", username, generate_password_hash(password))
+        except ValueError:
+            return apology("Error! Username is taken")
 
     rows = db.execute("SELECT * FROM users WHERE username = ?", username)
 
@@ -120,7 +125,6 @@ def dashboard():
 
     user_id = session["user_id"]
     flag = db.execute("Select Admin From users Where id = ?", user_id)[0]["Admin"]
-    print(flag)
 
 
     submitted_courses = db.execute("SELECT course_name FROM registered_courses WHERE user_id = ?", user_id)
@@ -147,6 +151,23 @@ def add():
             return apology("must provide description", 403)
 
     return render_template("add.html")
+
+
+@app.route("/available", methods=['POST', 'GET'])
+@login_required
+def available():
+
+    user_id = session["user_id"]
+    print("hi")
+    if request.method == "POST":
+
+        course = request.form.get("button")
+
+        if course:
+            db.execute("INSERT INTO registered_courses (user_id, course_name) VALUES(?,?)", user_id, course)
+
+    available_courses = db.execute("SELECT * FROM available_courses")
+    return render_template("available.html", available_courses=available_courses)
 
 
 if __name__ == '__main__':
