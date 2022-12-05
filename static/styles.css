@@ -1,0 +1,910 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+div {
+    width: 100vw;
+    height: 100vh;
+}
+.mediaViewInfo {
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920__1;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: height;
+	--web-scale-on-resize: true;
+	--web-show-by-media-query: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+    --web-view-ids: Web_1920__1;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Web_1920__1 {
+	position: absolute;
+	width: 1920px;
+	height: 8389px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920__1;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: width;
+	--web-scale-on-resize: true;
+	--web-show-by-media-query: true;
+	--web-enable-deep-linking: true;
+}
+#News_Item {
+	position: absolute;
+	width: 511px;
+	height: 756.564px;
+	left: 160.5px;
+	top: 1532px;
+	overflow: visible;
+}
+#Bg {
+	fill: rgba(255,255,255,1);
+}
+.Bg {
+	filter: drop-shadow(20px 20px 60px rgba(0, 0, 0, 0.102));
+	position: absolute;
+	overflow: visible;
+	width: 691px;
+	height: 936.564px;
+	left: 0px;
+	top: 0px;
+}
+#Text {
+	position: absolute;
+	width: 426px;
+	height: 220.8px;
+	left: 42.5px;
+	top: 489.775px;
+	overflow: visible;
+}
+#Bunch_of_components {
+	left: 47px;
+	top: 70.8px;
+	position: absolute;
+	overflow: visible;
+	width: 380px;
+	height: 150px;
+	line-height: 37px;
+	margin-top: -4.5px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	color: rgba(89,95,111,1);
+}
+#Lyft_expands_tax-sav {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 427px;
+	height: 59px;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 42px;
+	color: rgba(45,143,241,1);
+	letter-spacing: -0.2777777862548828px;
+}
+#Image {
+	position: absolute;
+	width: 468.417px;
+	height: 425.833px;
+	left: 21.292px;
+	top: 21.292px;
+	overflow: visible;
+}
+#Mask {
+	filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.302));
+	position: absolute;
+	width: 468.417px;
+	height: 425.833px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Image_n {
+	position: absolute;
+	width: 468.417px;
+	height: 425.833px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Path_1 {
+	fill: rgba(45,143,241,1);
+}
+.Path_1 {
+	overflow: visible;
+	position: absolute;
+	width: 1920px;
+	height: 94px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#The_Next_Coders_Society {
+	left: 57px;
+	top: 24px;
+	position: absolute;
+	overflow: visible;
+	width: 454px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 36px;
+	color: rgba(255,255,255,1);
+}
+#Lets_Code {
+	left: 781px;
+	top: 24px;
+	position: absolute;
+	overflow: visible;
+	width: 185px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	color: rgba(255,255,255,1);
+}
+#Sign_In {
+	left: 1734px;
+	top: 24px;
+	position: absolute;
+	overflow: visible;
+	width: 122px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	color: rgba(255,255,255,1);
+}
+#Build_a_World_of_Code {
+	left: 1283px;
+	top: 24px;
+	position: absolute;
+	overflow: visible;
+	width: 391px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	color: rgba(255,255,255,1);
+}
+#kids_coding {
+	position: absolute;
+	width: 1920px;
+	height: 986px;
+	left: 0px;
+	top: 94px;
+	overflow: visible;
+}
+#Rectangle_2 {
+	opacity: 0.59;
+	fill: rgba(83,83,83,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_2 {
+	position: absolute;
+	overflow: visible;
+	width: 1920px;
+	height: 986px;
+	left: 0px;
+	top: 94px;
+}
+#code {
+	left: 568px;
+	top: 377px;
+	position: absolute;
+	overflow: visible;
+	width: 785px;
+	height: 420px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 300px;
+	color: rgba(255,255,255,1);
+}
+#Empowering_the_next_generation {
+	left: 442px;
+	top: 750px;
+	position: absolute;
+	overflow: visible;
+	width: 1053px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: lighter;
+	font-size: 48px;
+	color: rgba(255,255,255,1);
+}
+#Our_Programs {
+	left: 115px;
+	top: 1159px;
+	position: absolute;
+	overflow: visible;
+	width: 627px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 87px;
+	color: rgba(67,67,67,1);
+	text-transform: capitalize;
+}
+#At_the_Next_Coders_Society_we_ {
+	left: 149px;
+	top: 1321px;
+	position: absolute;
+	overflow: visible;
+	width: 1612px;
+	height: 161px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	color: rgba(83,83,83,1);
+}
+#News_Item_z {
+	position: absolute;
+	width: 511px;
+	height: 756.564px;
+	left: 1248.5px;
+	top: 1532px;
+	overflow: visible;
+}
+#Bg_ {
+	fill: rgba(255,255,255,1);
+}
+.Bg_ {
+	filter: drop-shadow(20px 20px 60px rgba(0, 0, 0, 0.102));
+	position: absolute;
+	overflow: visible;
+	width: 691px;
+	height: 936.564px;
+	left: 0px;
+	top: 0px;
+}
+#Image_ {
+	position: absolute;
+	width: 468.417px;
+	height: 425.833px;
+	left: 21.292px;
+	top: 21.292px;
+	overflow: visible;
+}
+#Mask_ba {
+	fill: url(#Mask_ba);
+}
+.Mask_ba {
+	filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.302));
+	position: absolute;
+	overflow: visible;
+	width: 558.417px;
+	height: 515.833px;
+	left: 0px;
+	top: 0px;
+}
+#Image_ba {
+	position: absolute;
+	width: 468.417px;
+	height: 425.833px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#News_Item_ {
+	position: absolute;
+	width: 511px;
+	height: 756.564px;
+	left: 704.5px;
+	top: 1532px;
+	overflow: visible;
+}
+#Bg_ba {
+	fill: rgba(255,255,255,1);
+}
+.Bg_ba {
+	filter: drop-shadow(20px 20px 60px rgba(0, 0, 0, 0.102));
+	position: absolute;
+	overflow: visible;
+	width: 691px;
+	height: 936.564px;
+	left: 0px;
+	top: 0px;
+}
+#Image_bb {
+	position: absolute;
+	width: 468.417px;
+	height: 425.833px;
+	left: 21.292px;
+	top: 21.292px;
+	overflow: visible;
+}
+#Mask_bc {
+	fill: url(#Mask_bc);
+}
+.Mask_bc {
+	filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.302));
+	position: absolute;
+	overflow: visible;
+	width: 558.417px;
+	height: 515.833px;
+	left: 0px;
+	top: 0px;
+}
+#Image_bc {
+	position: absolute;
+	width: 468.417px;
+	height: 425.833px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Text_bb {
+	position: absolute;
+	width: 983px;
+	height: 231.8px;
+	left: 747px;
+	top: 2020.775px;
+	overflow: visible;
+}
+#Bunch_of_components_bc {
+	left: 29.5px;
+	top: 81.8px;
+	position: absolute;
+	overflow: visible;
+	width: 368px;
+	height: 150px;
+	line-height: 37px;
+	margin-top: -4.5px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	color: rgba(89,95,111,1);
+}
+#Lyft_expands_tax-sav_bd {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 427px;
+	height: 59px;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 42px;
+	color: rgba(45,143,241,1);
+	letter-spacing: -0.2777777862548828px;
+}
+#Bunch_of_components_be {
+	left: 560px;
+	top: 81.8px;
+	position: absolute;
+	overflow: visible;
+	width: 424px;
+	height: 150px;
+	line-height: 37px;
+	margin-top: -4.5px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	color: rgba(89,95,111,1);
+}
+#Lyft_expands_tax-sav_bf {
+	left: 541px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 427px;
+	height: 59px;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 42px;
+	color: rgba(45,143,241,1);
+	letter-spacing: -0.2777777862548828px;
+}
+#Rectangle_3 {
+	fill: rgba(255,255,255,1);
+}
+.Rectangle_3 {
+	filter: drop-shadow(3px 3px 23px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 443px;
+	height: 183px;
+	left: 781px;
+	top: 2382px;
+}
+#Register_Now {
+	left: 837px;
+	top: 2410px;
+	position: absolute;
+	overflow: visible;
+	width: 263px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 42px;
+	color: rgba(45,143,241,1);
+	letter-spacing: -0.2777777862548828px;
+}
+#Path_2 {
+	fill: rgba(45,143,241,1);
+}
+.Path_2 {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	left: 0px;
+	top: 3335px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Why_Code_ {
+	left: 731px;
+	top: 2681px;
+	position: absolute;
+	overflow: visible;
+	width: 459px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 87px;
+	color: rgba(255,255,255,1);
+	text-transform: capitalize;
+}
+#Path_3 {
+	fill: rgba(45,143,241,1);
+}
+.Path_3 {
+	overflow: visible;
+	position: absolute;
+	width: 1920px;
+	height: 3603.2px;
+	left: 0px;
+	top: 2608px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Why_Code {
+	left: 758px;
+	top: 2688px;
+	position: absolute;
+	overflow: visible;
+	width: 459px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 87px;
+	color: rgba(255,255,255,1);
+	text-transform: capitalize;
+}
+#Have_you_ever_wondered_how_the {
+	left: 334px;
+	top: 2859px;
+	position: absolute;
+	overflow: visible;
+	width: 1308px;
+	height: 491px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	color: rgba(255,255,255,1);
+}
+#Rectangle_4 {
+	fill: rgba(255,255,255,1);
+}
+.Rectangle_4 {
+	position: absolute;
+	overflow: visible;
+	width: 1599px;
+	height: 859px;
+	left: 161px;
+	top: 3369px;
+}
+#problem_solving {
+	position: absolute;
+	width: 656px;
+	height: 656px;
+	left: 266px;
+	top: 3471px;
+	overflow: visible;
+}
+#Rectangle_6 {
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_6 {
+	position: absolute;
+	overflow: visible;
+	width: 1599px;
+	height: 859px;
+	left: 161px;
+	top: 4278px;
+}
+#Rectangle_7 {
+	fill: rgba(108,44,44,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_7 {
+	position: absolute;
+	overflow: visible;
+	width: 656px;
+	height: 656px;
+	left: 999px;
+	top: 4380px;
+}
+#Rectangle_8 {
+	fill: rgba(255,255,255,1);
+}
+.Rectangle_8 {
+	position: absolute;
+	overflow: visible;
+	width: 1599px;
+	height: 859px;
+	left: 161px;
+	top: 4278px;
+}
+#future_job {
+	position: absolute;
+	width: 656px;
+	height: 656px;
+	left: 999px;
+	top: 4380px;
+	overflow: visible;
+}
+#Learn_How_to_Think_ {
+	left: 1009px;
+	top: 3479px;
+	position: absolute;
+	overflow: visible;
+	width: 638px;
+	height: 64px;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 46px;
+	color: rgba(67,67,67,1);
+}
+#Everybody_in_this_country_shou {
+	left: 999px;
+	top: 3585px;
+	position: absolute;
+	overflow: hidden;
+	width: 670px;
+	height: 542px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 32px;
+	color: rgba(54,54,54,1);
+}
+#Secure_Job_Opportunities {
+	left: 276px;
+	top: 4388px;
+	position: absolute;
+	overflow: visible;
+	width: 638px;
+	height: 64px;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 46px;
+	color: rgba(67,67,67,1);
+}
+#n_According_to_the_United_Stat {
+	left: 266px;
+	top: 4494px;
+	position: absolute;
+	overflow: visible;
+	width: 670px;
+	height: 542px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 32px;
+	color: rgba(54,54,54,1);
+}
+#Rectangle_10 {
+	fill: rgba(255,255,255,1);
+}
+.Rectangle_10 {
+	position: absolute;
+	overflow: visible;
+	width: 1599px;
+	height: 859px;
+	left: 161px;
+	top: 5199px;
+}
+#collaboration {
+	position: absolute;
+	width: 656px;
+	height: 656px;
+	left: 266px;
+	top: 5301px;
+	overflow: visible;
+}
+#Join_a_community_of_creators {
+	left: 1009px;
+	top: 5309px;
+	position: absolute;
+	overflow: visible;
+	width: 638px;
+	height: 133px;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 46px;
+	color: rgba(67,67,67,1);
+}
+#Sharing_is_a_big_part_of_the_c {
+	left: 999px;
+	top: 5488px;
+	position: absolute;
+	overflow: visible;
+	width: 692px;
+	height: 542px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 32px;
+	color: rgba(54,54,54,1);
+}
+#Build_a_world_of_code {
+	left: 92px;
+	top: 6290px;
+	position: absolute;
+	overflow: visible;
+	width: 968px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 87px;
+	color: rgba(67,67,67,1);
+	text-transform: capitalize;
+}
+#Community_is_at_heart_of_value {
+	left: 124px;
+	top: 6501px;
+	position: absolute;
+	overflow: visible;
+	width: 729px;
+	height: 429px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 32px;
+	color: rgba(83,83,83,1);
+}
+#Rectangle_12 {
+	fill: rgba(255,255,255,1);
+}
+.Rectangle_12 {
+	filter: drop-shadow(3px 3px 23px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 443px;
+	height: 183px;
+	left: 795px;
+	top: 7066px;
+}
+#Apply_Now {
+	left: 874px;
+	top: 7094px;
+	position: absolute;
+	overflow: visible;
+	width: 217px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 42px;
+	color: rgba(45,143,241,1);
+	letter-spacing: -0.2777777862548828px;
+}
+#Why__Code {
+	left: 1026px;
+	top: 22px;
+	position: absolute;
+	overflow: visible;
+	width: 197px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	color: rgba(255,255,255,1);
+}
+#Tech_Leaders {
+	position: absolute;
+	width: 917px;
+	height: 516px;
+	left: 922px;
+	top: 6457px;
+	overflow: visible;
+}
+#Besides_becoming_a_role_model_ {
+	left: 124px;
+	top: 7261px;
+	position: absolute;
+	overflow: visible;
+	width: 1716px;
+	height: 161px;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 36px;
+	color: rgba(83,83,83,1);
+}
+#event_1 {
+	position: absolute;
+	width: 554px;
+	height: 554px;
+	left: 124px;
+	top: 7483px;
+	overflow: visible;
+}
+#event_2 {
+	position: absolute;
+	width: 554px;
+	height: 554px;
+	left: 706px;
+	top: 7483px;
+	overflow: visible;
+}
+#event_3 {
+	position: absolute;
+	width: 554px;
+	height: 554px;
+	left: 1288px;
+	top: 7483px;
+	overflow: visible;
+}
+#Path_4 {
+	fill: rgba(45,143,241,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_4 {
+	overflow: visible;
+	position: absolute;
+	width: 1920px;
+	height: 186px;
+	left: 0px;
+	top: 8203px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#The_Next_Coders_Society_cc {
+	left: 658px;
+	top: 8263px;
+	position: absolute;
+	overflow: visible;
+	width: 605px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 48px;
+	color: rgba(255,255,255,1);
+}
+
+
+
+/* CSS */
+.button-18 {
+  align-items: center;
+  background-color: #0A66C2;
+  border: 0;
+  border-radius: 300px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 100px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.button-18:hover,
+.button-18:focus {
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.button-18:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.button-18:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
