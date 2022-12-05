@@ -1,3 +1,22 @@
-{% for show in searched_courses %}
-    <li>{{ show["course_name"] }}</li>
-{% endfor %}
+<style>
+        h2 {
+  position: absolute;
+  left: -100px;
+  top: 150px;
+}
+    </style>
+
+<h2>
+<form action="/" method="POST">
+            <label for="clarinets">SearchedCourse:</label>
+            <select name="clarinets" id="clarinets">
+
+
+                {% for show in searched_courses %}
+                <option>{{ show['course_name']}}</option>
+                {% endfor %}
+
+            </select>
+            <button type="submit">Register</button>
+        </form>
+    </h2>

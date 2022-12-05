@@ -4,6 +4,13 @@
 Index
 {% endblock %}
 
+{% block nav %}
+    {% if flag == 1 %}
+        <li class="nav-item"><a class="nav-link" href="/add">Add a course</a></li>
+    {% endif %}
+
+{% endblock %}
+
 {% block main %}
 
 <main class="container py-5 text-center">
@@ -30,49 +37,70 @@ Index
                 document.querySelector('ul').innerHTML = shows;
             });
 
+
+
         </script>
 
-                <form action="/" method="POST">
-                    <label for="clarinets">Available Courses:</label>
-                    <select name="clarinets" id="clarinets">
-
-
-                        {% for course in available_courses %}
-                        <option>{{course['course_name']}}</option>
-                        {% endfor %}
-
-                    </select>
-                    <button type="submit">Register</button>
-                </form>
-
-
-        {% for name in registered_courses %}
-        <tr>
-            <td>{{name['course_name']}}</td>
-        </tr>
-        {% endfor %}
-
-        <footer>
         <form action="/" method="POST">
-            <labelable for="unregister">Registered Courses:</labelable>
-            <select name="unregister" id="unregister">
+            <label for="clarinets">Available Courses:</label>
+            <select name="clarinets" id="clarinets">
 
 
-                {% for course in registered_courses %}
+                {% for course in available_courses %}
                 <option>{{course['course_name']}}</option>
                 {% endfor %}
 
             </select>
-            <button type="submit">Unregister</button>
+            <button type="submit">Register</button>
         </form>
-    </footer>
+
+<!--        {% for show in searched_courses %}-->
+<!--        &lt;!&ndash;        <{{ show['course_name']}}&ndash;&gt;-->
+<!--        <tr>-->
+<!--            <td>{{show['course_name']}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;            </select>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button type="submit">{{ show['course_name']}}</button>&ndash;&gt;-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
 
 
-        {% for show in searched_courses %}
+                {% for name in registered_courses %}
+                <tr>
+<!--                    <td>{{name['course_name']}}</td>-->
+<!--                    <td><button type="submit" value="submit_button">HI</button></td>-->
+<!--                    <td><button type="submit">{{name['course_name']}}</button></td>-->
+                    <form action="/" method="POST">
+                <td><button type="submit" id="button" name="button" value="{{name['course_name']}}">{{name['course_name']}}</button></td>
+                    </form>
+                </tr>
+                {% endfor %}
 
-         <{{ show['course_name']}}
+        <footer>
+            <form action="/" method="POST">
+                <label for="unregister">Registered Courses:</label>
+                <select name="unregister" id="unregister">
 
-        {% endfor %}
+
+                    {% for course in registered_courses %}
+                    <option>{{course['course_name']}}</option>
+                    {% endfor %}
+
+                </select>
+                <button type="submit">Unregister</button>
+            </form>
+        </footer>
+
+
+        <!--        <form action="/" method="POST">-->
+        <!--            <label for="searched">SearchedCourses:</label>-->
+        <!--            <select name="searched" id="searched">-->
+        <!--        {% for show in searched_courses %}-->
+        <!--&lt;!&ndash;        <{{ show['course_name']}}&ndash;&gt;-->
+        <!--             </select>-->
+        <!--        <button type="submit">{{ show['course_name']}}</button>-->
+        <!--        {% endfor %}-->
+        <!--            </form>-->
+
 
         </tbody>
 

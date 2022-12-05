@@ -5,15 +5,17 @@
 {% endblock %}
 
 {% block main %}
+<!--<div id="Why_Code">-->
+<!--		<span>Why Code</span>-->
+<!--	</div>-->
+
     <form action="/register" method="post">
-        <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
-        </div>
-        <div class="mb-3">
             <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
-        </div>
-        <div class="mb-3">
             <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Password (again)" type="password">
+        <div>
+            <input type="checkbox" id="admin" name="admin" value="admin">
+            <label for="admin">Do you wish to register as an admin</label>
         </div>
         <button class="btn btn-primary" type="submit">Register</button>
     </form>

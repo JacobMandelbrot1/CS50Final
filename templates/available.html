@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Available Courses
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr >
+                <th >Course Name</th>
+                <th >Course Description</th>
+            </tr>
+
+        </thead>
+        <tbody>
+        {% for course in available_courses %}
+        <tr class="clickable">
+            <td>{{course['course_name']}}</td>
+            <td>{{course['description']}}</td>
+            <form action="/available" method="POST">
+                <td><button type="submit" id="button" name="button" value="{{course['course_name']}}">Register</button></td>
+            </form>
+        </tr>
+        {% endfor %}
+
+
+        </tbody>
+
+    </table>
+    <form action="/add" method="post">
+
+        <button class="btn btn-primary" type="submit">Add Course</button>
+    </form>
+{% endblock %}
