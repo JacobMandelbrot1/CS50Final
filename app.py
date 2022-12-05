@@ -25,6 +25,7 @@ def register():
     username = request.form.get("username")
     password = request.form.get("password")
     confirm_password = request.form.get("confirmation")
+    admin = request.form.get("admin")
 
     if not username:
         return apology("Missing username")
@@ -40,6 +41,7 @@ def register():
 
     if username == db.execute("SELECT username FROM users"):
         return apology("Duplicate username")
+
 
     try:
         id = db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, generate_password_hash(password))
@@ -70,6 +72,8 @@ def login():
         elif not request.form.get("password"):
             return apology("must provide password", 403)
 
+
+
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
@@ -79,6 +83,7 @@ def login():
 
         # # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+
 
         # Redirect user to home page
         return redirect("/")
@@ -103,6 +108,7 @@ def logout():
 @app.route("/", methods=['POST', 'GET'])
 @login_required
 def dashboard():
+
     user_id = session["user_id"]
     if request.method == "POST":
         value = request.form.get("clarinets")
@@ -112,6 +118,9 @@ def dashboard():
         elif unvalue:
             db.execute("DELETE FROM registered_courses WHERE course_name= ?", unvalue)
 
+    user_id = session["user_id"]
+    flag = db.execute("Select Admin From users Where id = ?", user_id)[0]["Admin"]
+    print(flag)
 
 
     submitted_courses = db.execute("SELECT course_name FROM registered_courses WHERE user_id = ?", user_id)
@@ -119,7 +128,25 @@ def dashboard():
     courses = db.execute("SELECT course_name FROM available_courses WHERE course_name NOT IN (SELECT course_name FROM registered_courses WHERE user_id = ?)",
         user_id)
 
-    return render_template("dashboard.html", available_courses=courses, registered_courses=submitted_courses)
+    return render_template("dashboard.html", available_courses=courses, registered_courses=submitted_courses, flag = flag)
+
+
+@app.route("/add", methods=['POST', 'GET'])
+@login_required
+def add():
+
+    user_id = session["user_id"]
+    if request.method == "POST":
+        course_name = request.form.get("course_name")
+        description = request.form.get("description")
+        if course_name and description:
+            db.execute("INSERT INTO available_courses (course_name, description) VALUES(?, ?)", course_name, description)
+        elif not course_name:
+            return apology("must provide course name", 403)
+        elif not description:
+            return apology("must provide description", 403)
+
+    return render_template("add.html")
 
 
 if __name__ == '__main__':
