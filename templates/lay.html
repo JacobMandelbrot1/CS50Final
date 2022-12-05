@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<div id="Web_1920__1">
 
 
 
@@ -17,19 +18,15 @@
 		<path id="Path_1" d="M 0 0 L 1920 0 L 1920 94 L 0 94 L 0 0 Z">
 		</path>
 	</svg>
+
 	<div id="The_Next_Coders_Society">
 		<span>The Next Coder's Society</span>
 	</div>
-	<div id="Lets_Code">
-		<span>Let's Code</span>
-	</div>
-	<div id="Sign_In">
-		<span>Sign In</span>
-	</div>
-	<div id="Build_a_World_of_Code">
-		<span>Build a World of Code</span>
-	</div>
+    {% block nav %} {% endblock %}
 
+    <main class="container-fluid py-5 text-center">
+            {% block main %}{% endblock %}
+    </main>
 
 	<svg class="Path_4" viewBox="0 0 1920 186">
 		<path id="Path_4" d="M 0 0 L 1920 0 L 1920 186 L 0 186 L 0 0 Z">
@@ -83,10 +80,9 @@
             </header>
         {% endif %}
 
-        <main class="container-fluid py-5 text-center">
-            {% block main %}{% endblock %}
-        </main>
+
 
 
 
     </body>
+</html>
